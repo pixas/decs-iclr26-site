@@ -1,0 +1,309 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DeCS | ICLR 2026</title>
+    <meta
+      name="description"
+      content="Academic project website for Overthinking Reduction with Decoupled Rewards and Curriculum Data Scheduling (ICLR 2026)."
+    />
+    <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body>
+    <div class="bg-mesh" aria-hidden="true">
+      <span class="orb orb-a"></span>
+      <span class="orb orb-b"></span>
+      <span class="orb orb-c"></span>
+    </div>
+
+    <header class="hero panel reveal">
+      <p class="hero-venue" id="venue"></p>
+      <h1 id="paper-title"></h1>
+      <p class="hero-subtitle" id="paper-subtitle"></p>
+
+      <div class="link-row" id="paper-links" aria-label="Paper links"></div>
+      <!-- <p class="link-note">Empty links are placeholders. Edit <code>assets/js/site-config.js</code>.</p> -->
+
+      <div class="authors" id="authors"></div>
+      <p class="affiliations" id="affiliations"></p>
+
+      <div class="stats-grid" id="hero-stats"></div>
+    </header>
+
+    <nav class="toc panel reveal" aria-label="Section navigation">
+      <a href="#abstract">Abstract</a>
+      <a href="#introduction">Introduction</a>
+      <a href="#method">Method</a>
+      <a href="#experiments">Experiments</a>
+      <a href="#token-vs-pnrp">Token vs PNRP</a>
+      <a href="#passk">Pass@K</a>
+      <a href="#token-budget">Token Budget Scaling</a>
+      <a href="#difficulty">Difficulty vs Efficiency</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#conclusion">Conclusion</a>
+    </nav>
+
+    <main>
+      <section class="panel reveal" id="abstract">
+        <h2>Abstract</h2>
+        <p id="abstract-text"></p>
+        <ul class="takeaways" id="takeaways"></ul>
+      </section>
+
+      <section class="panel reveal wide-visual" id="introduction">
+        <div class="section-head">
+          <h2>Introduction</h2>
+          <p>Visual summary of overthinking failure modes and efficiency-performance trade-offs.</p>
+        </div>
+        <div class="figure-grid">
+          <article class="figure-card reveal span-2">
+            <div class="figure-frame large">
+              <object data="./assets/figures/intro_cut.pdf#view=FitH" type="application/pdf" aria-label="Introduction overview"></object>
+            </div>
+            <h3>Overview of Failure Modes and DeCS Gains</h3>
+            <a class="figure-link" href="./assets/figures/intro_cut.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel reveal wide-visual" id="method">
+        <div class="section-head">
+          <h2>Method</h2>
+          <p>From limitation analysis to DeCS: detector, decoupled reward, and curriculum scheduling.</p>
+        </div>
+
+        <div class="method-cards">
+          <article>
+            <h3>1) NRP Detection</h3>
+            <p>Detect the necessary reasoning prefix and separate useful reasoning from redundancy.</p>
+          </article>
+          <article>
+            <h3>2) Decoupled Reward</h3>
+            <p>Protect essential tokens and consistently penalize redundant tokens after NRP.</p>
+          </article>
+          <article>
+            <h3>3) Curriculum Schedule</h3>
+            <p>Adapt easy-prompt ratio to avoid suppressing exploratory behavior during training.</p>
+          </article>
+        </div>
+
+        <div class="figure-grid">
+          <article class="figure-card reveal span-2">
+            <div class="figure-frame xlarge">
+              <object data="./assets/figures/method2.pdf#view=FitH" type="application/pdf" aria-label="DeCS method"></object>
+            </div>
+            <h3>DeCS Training Pipeline</h3>
+            <a class="figure-link" href="./assets/figures/method2.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel reveal" id="experiments">
+        <div class="section-head">
+          <h2>Experiments</h2>
+          <p>Core effectiveness: module ablation and post-training reasoning behavior.</p>
+        </div>
+        <div class="figure-grid">
+          <article class="figure-card reveal">
+            <div class="figure-frame">
+              <object data="./assets/figures/ablation_study_new.pdf#view=FitH" type="application/pdf" aria-label="Ablation study"></object>
+            </div>
+            <h3>Ablation Study</h3>
+            <a class="figure-link" href="./assets/figures/ablation_study_new.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-frame">
+              <object data="./assets/figures/reasoning_behavior.pdf#view=FitH" type="application/pdf" aria-label="Reasoning behavior"></object>
+            </div>
+            <h3>Reasoning Behavior</h3>
+            <a class="figure-link" href="./assets/figures/reasoning_behavior.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel reveal" id="token-vs-pnrp">
+        <div class="section-head">
+          <h2>Token vs PNRP</h2>
+          <p>DECS converts efficiency gains into higher PNRP (proportion of NRP) scores.</p>
+        </div>
+        <div class="figure-grid">
+          <article class="figure-card reveal">
+            <div class="figure-frame">
+              <object data="./assets/figures/pnrp_vs_tokens.pdf#view=FitH" type="application/pdf" aria-label="PNRP vs tokens 1.5B"></object>
+            </div>
+            <h3>PNRP vs Tokens (1.5B)</h3>
+            <a class="figure-link" href="./assets/figures/pnrp_vs_tokens.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-frame">
+              <object data="./assets/figures/pnrp_vs_tokens_7b.pdf#view=FitH" type="application/pdf" aria-label="PNRP vs tokens 7B"></object>
+            </div>
+            <h3>PNRP vs Tokens (7B)</h3>
+            <a class="figure-link" href="./assets/figures/pnrp_vs_tokens_7b.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel reveal" id="passk">
+        <div class="section-head">
+          <h2>Pass@K</h2>
+          <p>DECS preserves exploration and maintains strong scaling under multiple attempts.</p>
+        </div>
+        <div class="figure-grid">
+          <article class="figure-card reveal">
+            <div class="figure-frame">
+              <object data="./assets/figures/our_passk.pdf#view=FitH" type="application/pdf" aria-label="Pass at K 1.5B"></object>
+            </div>
+            <h3>Pass@K (1.5B)</h3>
+            <a class="figure-link" href="./assets/figures/our_passk.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-frame">
+              <object data="./assets/figures/our_passk_7b.pdf#view=FitH" type="application/pdf" aria-label="Pass at K 7B"></object>
+            </div>
+            <h3>Pass@K (7B)</h3>
+            <a class="figure-link" href="./assets/figures/our_passk_7b.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel reveal" id="token-budget">
+        <div class="section-head">
+          <h2>Token Budget Scaling</h2>
+          <p>Scaling trends under different generation budgets across AIME2024, AIME2025, and AMC23.</p>
+        </div>
+        <div class="figure-grid">
+          <article class="figure-card reveal">
+            <div class="figure-frame">
+              <object data="./assets/figures/aime2024_sequential_scaling_1.5b.pdf#view=FitH" type="application/pdf" aria-label="AIME2024 scaling 1.5B"></object>
+            </div>
+            <h3>AIME2024 Scaling (1.5B)</h3>
+            <a class="figure-link" href="./assets/figures/aime2024_sequential_scaling_1.5b.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-frame">
+              <object data="./assets/figures/aime2024_sequential_scaling_7b.pdf#view=FitH" type="application/pdf" aria-label="AIME2024 scaling 7B"></object>
+            </div>
+            <h3>AIME2024 Scaling (7B)</h3>
+            <a class="figure-link" href="./assets/figures/aime2024_sequential_scaling_7b.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-frame">
+              <object data="./assets/figures/aime2025_sequential_scaling_1.5b.pdf#view=FitH" type="application/pdf" aria-label="AIME2025 scaling 1.5B"></object>
+            </div>
+            <h3>AIME2025 Scaling (1.5B)</h3>
+            <a class="figure-link" href="./assets/figures/aime2025_sequential_scaling_1.5b.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-frame">
+              <object data="./assets/figures/aime2025_sequential_scaling_7b.pdf#view=FitH" type="application/pdf" aria-label="AIME2025 scaling 7B"></object>
+            </div>
+            <h3>AIME2025 Scaling (7B)</h3>
+            <a class="figure-link" href="./assets/figures/aime2025_sequential_scaling_7b.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-frame">
+              <object data="./assets/figures/amc23_sequential_scaling_1.5b.pdf#view=FitH" type="application/pdf" aria-label="AMC23 scaling 1.5B"></object>
+            </div>
+            <h3>AMC23 Scaling (1.5B)</h3>
+            <a class="figure-link" href="./assets/figures/amc23_sequential_scaling_1.5b.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-frame">
+              <object data="./assets/figures/amc23_sequential_scaling_7b.pdf#view=FitH" type="application/pdf" aria-label="AMC23 scaling 7B"></object>
+            </div>
+            <h3>AMC23 Scaling (7B)</h3>
+            <a class="figure-link" href="./assets/figures/amc23_sequential_scaling_7b.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel reveal" id="difficulty">
+        <div class="section-head">
+          <h2>Difficulty vs Efficiency</h2>
+          <p>DECS consistently improves compression quality across different difficulty levels.</p>
+        </div>
+        <div class="figure-grid">
+          <article class="figure-card reveal">
+            <div class="figure-frame">
+              <object data="./assets/figures/fanp_level_1.5b.pdf#view=FitH" type="application/pdf" aria-label="Difficulty levels 1.5B"></object>
+            </div>
+            <h3>Difficulty Levels (1.5B)</h3>
+            <a class="figure-link" href="./assets/figures/fanp_level_1.5b.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-frame">
+              <object data="./assets/figures/fanp_level_7b.pdf#view=FitH" type="application/pdf" aria-label="Difficulty levels 7B"></object>
+            </div>
+            <h3>Difficulty Levels (7B)</h3>
+            <a class="figure-link" href="./assets/figures/fanp_level_7b.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel reveal" id="cases">
+        <div class="section-head">
+          <h2>Case Studies</h2>
+          <p>Qualitative examples across math, coding, and science reasoning settings.</p>
+        </div>
+        <div class="figure-grid case-grid">
+          <article class="figure-card reveal">
+            <div class="figure-frame tall">
+              <object data="./assets/figures/case_math.pdf#view=FitH" type="application/pdf" aria-label="Case math"></object>
+            </div>
+            <h3>MATH Case</h3>
+            <a class="figure-link" href="./assets/figures/case_math.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-frame tall">
+              <object data="./assets/figures/case_lcb.pdf#view=FitH" type="application/pdf" aria-label="Case lcb"></object>
+            </div>
+            <h3>LiveCodeBench Case</h3>
+            <a class="figure-link" href="./assets/figures/case_lcb.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+
+          <article class="figure-card reveal">
+            <div class="figure-frame tall">
+              <object data="./assets/figures/case_gpqa.pdf#view=FitH" type="application/pdf" aria-label="Case gpqa"></object>
+            </div>
+            <h3>GPQA Case</h3>
+            <a class="figure-link" href="./assets/figures/case_gpqa.pdf" target="_blank" rel="noopener">Open PDF</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel reveal" id="conclusion">
+        <h2>Conclusion</h2>
+        <p>
+          DeCS shows that substantial overthinking reduction is achievable with careful token-level reward design and curriculum-aware data scheduling.
+          The method consistently improves efficiency while preserving or improving reasoning quality.
+        </p>
+
+        <h3>BibTeX</h3>
+        <pre class="bibtex" id="bibtex"></pre>
+      </section>
+    </main>
+
+    <footer class="footer panel reveal">
+      <p>
+        © <span id="year"></span> DeCS Project Website · Repository path target: <code>/DECS/</code>
+      </p>
+    </footer>
+
+    <script src="./assets/js/site-config.js"></script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
+
