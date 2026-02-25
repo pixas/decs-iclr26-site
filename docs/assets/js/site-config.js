@@ -10,45 +10,45 @@
     },
     {
       label: "💻 GitHub",
-      url: "https://github.com/pixas/DECS",
+      url: "https://github.com/pixas/DECS"
 
     },
     {
       label: "🤗 Hugging Face",
-      url: "https://huggingface.co/pixas/DECS_7B",
+      url: "https://huggingface.co/pixas/DECS_7B"
     }
   ],
   authors: [
     {
       name: "Shuyang Jiang",
       email: "shuyangjiang23@m.fudan.edu.cn",
-      affiliation: "Fudan University"
+      affiliationIds: [1, 3]
     },
     {
       name: "Yusheng Liao",
       email: "liao20160907@sjtu.edu.cn",
-      affiliation: "School of AI, SJTU"
+      affiliationIds: [2]
     },
     {
       name: "Ya Zhang",
       email: "ya_zhang@sjtu.edu.cn",
-      affiliation: "School of AI, SJTU"
+      affiliationIds: [2, 3]
     },
     {
       name: "Yanfeng Wang",
       email: "wangyanfeng622@sjtu.edu.cn",
-      affiliation: "School of AI, SJTU"
+      affiliationIds: [2, 3]
     },
     {
       name: "Yu Wang",
       email: "yuwangsjtu@sjtu.edu.cn",
-      affiliation: "School of AI, SJTU"
+      affiliationIds: [2, 3]
     }
   ],
   affiliations: [
     "Fudan University",
     "School of Artificial Intelligence, Shanghai Jiao Tong University",
-    "Shanghai Artificial Intelligence Laboratory"
+    "Shanghai Aritificial Intelligence Laboratory"
   ],
   heroStats: [
     { value: ">50%", label: "Reasoning Tokens Reduced" },
@@ -69,4 +69,3 @@
   year={2026}
 }`
 };
-

@@ -46,7 +46,22 @@
       const a = document.createElement("a");
       a.className = "author-link";
       a.href = `mailto:${author.email}`;
-      a.textContent = author.name;
+
+      const nameNode = document.createElement("span");
+      nameNode.textContent = author.name;
+      a.appendChild(nameNode);
+
+      const ids = Array.isArray(author.affiliationIds)
+        ? author.affiliationIds.filter((id) => Number.isInteger(id) && id > 0)
+        : [];
+
+      if (ids.length > 0) {
+        const sup = document.createElement("sup");
+        sup.className = "author-affil";
+        sup.textContent = ids.join(",");
+        a.appendChild(sup);
+      }
+
       authorsWrap.appendChild(a);
 
       if (index < config.authors.length - 1) {
@@ -58,7 +73,32 @@
   }
 
   if (affiliationsWrap) {
-    affiliationsWrap.textContent = (config.affiliations || []).join(" | ");
+    const affs = Array.isArray(config.affiliations) ? config.affiliations : [];
+    affiliationsWrap.innerHTML = "";
+
+    affs.forEach((aff, index) => {
+      const item = document.createElement("span");
+      item.className = "aff-item";
+
+      const sup = document.createElement("sup");
+      sup.className = "aff-index";
+      sup.textContent = String(index + 1);
+
+      const text = document.createElement("span");
+      text.className = "aff-text";
+      text.textContent = ` ${aff}`;
+
+      item.appendChild(sup);
+      item.appendChild(text);
+      affiliationsWrap.appendChild(item);
+
+      if (index < affs.length - 1) {
+        const sep = document.createElement("span");
+        sep.className = "aff-sep";
+        sep.textContent = "|";
+        affiliationsWrap.appendChild(sep);
+      }
+    });
   }
 
   if (statsWrap) {
@@ -106,3 +146,4 @@
     revealObserver.observe(node);
   });
 })();
+

@@ -500,3 +500,32 @@ section {
     min-height: 360px;
   }
 }
+
+.author-affil {
+  margin-left: 0.15rem;
+  font-size: 0.68em;
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.affiliations {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 0.55rem;
+}
+
+.aff-item {
+  white-space: nowrap;
+}
+
+.aff-sep {
+  color: var(--muted);
+}
+
+.aff-index {
+  font-size: 0.68em;
+  color: var(--teal);
+  font-weight: 600;
+  margin-right: 0.12rem;
+}
